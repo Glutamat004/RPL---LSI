@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.brand {
+  color : black;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 80px;
+}
+.card {
+  padding: 20px;
+  margin: 20px 200px;
+  box-shadow: 4px 4px 4px gray;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Sen', sans-serif;
+}
+a {
+  text-decoration: none;
+  text-align: center;
+}
+/*Header*/
+header {
+  display: inline;
+}
+nav {
+  background-color: #C7E3FC;
+  padding: 5px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+}
+nav a {
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+}
+nav li {
+  display: inline;
+  list-style-type: none;
+  margin-right: 20px;
+}
+@media screen and (max-width: 375px) {
+  nav li a {
+    font-size: 0.9rem !important;
+  }
+}
+nav a {
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  color: black;
+}
+nav a:hover {
+  transition: 1.4s;
+  border-bottom: 1px solid white;
+}
+
+th, td {
+  border-bottom: 1px solid darkslategray;
+}
+
+.jumbotron {
+  font-size: 20px;
+  padding: 50px;
+  background-color: darkslategray;
+  text-align: center;
+  color: #fff;
+}
+.jumbotron p {
+  font-size: 1rem;
+}
+/*End Header*/
+
+/*Main*/
+main {
+  padding: 50px;
+  overflow: auto;
+}
+#content {
+  float: left;
+  width: 70%;
+}
+aside {
+  float: right;
+  width: 30%;
+  padding-left: 20px;
+}
+article h2 {
+  color: darkslategray;
+  text-align: center;
+}
+article p, article h3 {
+  text-indent: 1.2rem;
+}
+article img {
+  border-radius: 5px;
+}
+
+.data {
+  color: black;
+  text-decoration: none;
+  padding: 6px 30px;
+  background-color: darkslategray;
+  border-radius: 5px;
+  margin: 10px 50px;
+} 
+
+.pilih-data {
+  color: black;
+  text-decoration: none;
+  padding: 6px 30px;
+  background-color: darkslategray;
+  border-radius: 5px;
+  margin: 10px 50px;
+}
+
+.card-nota {
+  margin: 5px 50px;
+}
+
+.pilih-data:hover {
+  color: darkslategray;
+  background-color: lightgray;
+  font-weight: bold;
+}
+
+.data:hover{
+  color: darkslategray;
+  background-color: lightgray;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: white;
+  color: darkslategray;
+  font-weight: bolder;
+  border: 1px solid darkslategray
+}
+
+.disp {
+  display: flex;
+}
+
+.flex {
+  flex-grow: 1;
+}
+
+.judul {
+  text-align: center;
+  color: darkslategray;
+}
+.card {
+  border-radius: 8px;
+  box-shadow: 3px 3px 20px lightgrey;
+  padding: 20px;
+  margin: 0 0 20px 0;
+  overflow: auto;
+}
+.featured-image {
+  border-radius: 5px;
+  max-width: 200px;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+@media screen and (max-width: 1000px) {
+  #content,
+  aside {
+    width: 100%;
+    padding: 0;
+  }
+  main {
+    padding: 10px;
+  }
+}
+article a[href] {
+  color: black;
+  text-decoration: none;
+}
+article a[href]:hover {
+  text-decoration: underline;
+}
+.jarak {
+    margin-bottom: 20px;
+}
+label {
+  font-weight: 600;
+}
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=date],
+input[type=datetime-local],
+input[type=email],
+input[type=file],
+textarea,
+select {
+   width: 100%;
+   padding: 12px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+}
+input[type="text"]:focus, 
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="datetime-local"]:focus,
+textarea:focus,
+select:focus {
+    box-shadow: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 5px darkslategray!important;
+    outline: 0 none !important;
+}
+.btn {
+  cursor: pointer;
+  outline: 0;
+  background-color: darkslategray;
+  color: black;
+  border-radius: 4px;
+  padding: 8px;
+  border: none;
+}
+/*End Main*/
+.gelombang {
+  position: relative;
+  top: black;
+}
+footer {
+  background-color: #8ABFEE;
+  padding: 20px 0 0 0;
+  font-weight: 500;
+  color: black;
+  text-align: center;
+  bottom: 0;
+  position: relative;
+  width: 100%;
+  margin-bottom: none;
+}
+footer a[href] {
+  text-decoration: none;
+  color: black;
+}
+footer td {
+  padding: 10px 20px;
+}
+
+/*Tambahan*/
+.white {
+  color: black;
+}
+
+.btn-index {
+  padding: 7px;
+  border: 2px solid #80c1f9;
+  color: white;
+  border-radius: 50px;
+  font-weight: 900;
+}
+
+.btn-index:hover {
+  background-color: #80c1f9;
+}
