@@ -20,22 +20,34 @@ use App\Models\Category;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//NEW
 Route::get('/', function () {
-    return view('home', [
+    return view('home2', [
+    ]);
+});
+Route::get('/login', function () {
+    return view('login', [
+    ]);
+});
+Route::get('/signup', function () {
+    return view('signup', [
+    ]);
+});
+Route::get('/reservation', function () {
+    return view('reservation', [
     ]);
 });
 
-Route::get('/about', function () {
-    return view('about', [
+Route::get('/aliya', function () {
+    return view('home2', [
     ]);
 });
 // Route::get('/transaksi', function () {
 //     return view('transaksi', [
 //     ]);
 // });
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
+// Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+// Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'logout']);

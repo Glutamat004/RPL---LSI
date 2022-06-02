@@ -36,8 +36,9 @@ nav {
   background-color: #C7E3FC;
   padding: 5px;
   text-align: center;
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
 }
 nav a {
   font-size: 18px;
@@ -267,8 +268,36 @@ footer td {
   color: white;
   border-radius: 50px;
   font-weight: 900;
+  justify-content: center;
+
 }
 
 .btn-index:hover {
   background-color: #80c1f9;
+}
+a {
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 6px 10px;
+  background-color: darkred;
+}
+
+.index {
+  margin: 20px 50px 40px 200px;
+}
+
+.index h1 {
+  font-size: 44px;
+}
+
+.index h2 {
+  font-size: 37px;
+}
+
+.index p {
+  font-size: 27px;
 }

@@ -9,10 +9,10 @@
             <p>You can book your chair on our website now</p>
             <div class="disp">
                 <div class="flex" style="width: 25%;">
-                    <a href="#learnmore" class="btn-index">Book Your Reservation</a>
+                    <a href="#" class="btn-index">Book Your Reservation</a>
                 </div>
                 <div class="flex" style="width: 25%;">
-                    <a href="#aboutus" class="btn-index">Learn More</a>
+                    <a href="#learnmore" class="btn-index">Learn More</a>
                 </div>
                 <div class="flex" style="width: 50%;">
                     <!-- PASS -->
@@ -94,4 +94,5 @@
             </select>
         </div>
     </center>
+    @include('footer')
 @endsection

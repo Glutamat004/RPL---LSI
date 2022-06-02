@@ -1,89 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xerabutan - Salurkan Keahlianmu!</title>
-    <link rel="icon" href="/image/x.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
     <link rel="stylesheet" href="/css/style.css">
-
+    <title>Sumberdaya Informasi</title>
+    <style>
+       
+    </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-        <div class="container">
-          <a class="navbar-brand" href="/">
-            <img src="/image/xerabutan Logo.png" alt="xerabutan" width="240" height="32">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link  biru-xerabutan fw-bold menu {{ Request::is('/') ? 'active' : '' }}" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link biru-xerabutan fw-bold menu {{ Request::is('posts') ? 'active' : '' }} {{ Request::is('posts*') ? 'active' : '' }}" href="/posts">Cari Keahlian</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link biru-xerabutan fw-bold menu {{ Request::is('about') ? 'active' : '' }}" href="/about">Tentang Kami</a>
-              </li>
-
-              @auth
-              
-              <li class="nav-item">
-                <div class="dropdown fw-bold text-white fw-bold fs-6 btn-bg-pink-hover bg-biru-xerabutan rounded">
-                  <button class="btn dropdown-toggle fw-bold text-white fw-bold fs-6 btn-bg-pink-hover bg-biru-xerabutan rounded" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{ auth()->user()->name }}
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
-                    <li>
-                      <form action="/logout" method="post">
-                          @csrf
-                          <button type="submit" class="nav-link dropdown-item ps-3"
-                          >Logout</button>
-                      </form>
-                    </li>
-                  </ul>
+    <header id="home">
+        <nav>
+            <div class="disp">
+                <div class="flex" style="width : 10%">
+                    <img src="/image/logo.png" alt="" width="100" height="100" style="border-radius: 500px;">
                 </div>
-                
-              </li>
-              @else
-              <li class="nav-item">
-                <a class="nav-link fw-bold text-white fw-bold fs-6 btn-bg-pink-hover bg-biru-xerabutan rounded px-3" aria-current="page" href="/login" style="width: 75px;">Login</a>
-              </li>
-              @endauth
-            </ul>
-          </div>
-        </div>
-    </nav>
-
-   <div class="container mt-4">
-       @yield('template')
-   </div>
-
-   <footer class="bg-biru-xerabutan py-4">
-    <div class="container">
-        <div class="row text-center text-white">
-            <div class="col text-start">
-                <p class="mb-0">
-                    <span><a href="mailto:contact@xerabutan.com" target="_blank"><img src="/image/gmail.png" alt="" width="20px" class="my-2 me-1"></a></span>contact@xerabutan.com <br>
-                    <span><a href="https://api.whatsapp.com/send/?phone=6281398589316&text&app_absent=0" target="_blank"><img src="/image/wa.png" alt="" width="20px" class="my-2 me-1"></a></span>0813-9868-9316<br>
-                    <span><img src="/image/alamat.png" alt="" width="20px" class="my-2 me-1"></span>Jalan Raya Cibanteng, Kabupaten Bogor.<br>
-                    <span><a href="https://www.instagram.com/xerabutan/" target="_blank"><img src="/image/instagram.png" alt="" width="20px" class="my-2 me-1"></a></span>@xerabutan<br>
-                </p>
+                <div class="flex" style="width : 45%">
+                    <h1 class="brand">Layanan Sumberdaya Informasi</h1>
+                </div>
+                <div class="flex" style="margin-top: 15px; width : 45%">
+                    <ul>
+                        <li><a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="#">Home</a></li>
+                        <li><a class="nav-link {{ Request::is('/reservation') ? 'active' : '' }}" href="/reservation">Reservation</a></li>
+                        <li><a class="nav-link {{ Request::is('#aboutus') ? 'active' : '' }}" href="#aboutus">About Us</a></li>
+                        @auth
+                            <li><a href="/logout"><strong>Logout</strong></a></li>
+                        @else
+                            <li><a href="/signup"><strong>Sign Up</strong></a></li>
+                        @endauth
+                        
+                    </ul>
+                </div>
             </div>
-            <div class="col mt-5">
-              <p class="fw-bold fs-1 mb-0">#Salurkan Keahlianmu</p>
-            </div>
-        </div>
-    </div>
-</footer>
+        </nav>
+    </header>
+    
+    @yield('template')
+    
+    <center>
+        <br>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <footer style="margin: 0; padding-left : 0; padding-right : 0">
+            <div class="disp">
+                <div class="flex" style="width: 50%;">
+                    
+                </div>
+                <div class="flex" style="width: 50%;">
+                    <div class="disp">
+                        <div class="flex" >
+                            <h1 class="brand">Layanan Sumberdaya Informasi</h1>
+                        </div>
+                        <div class="flex">
+                            <img src="image/logo.png" alt="" width="100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="disp">
+                <div class="flex" style="width: 30%;">
+                    <h3>Contact Us</h3>
+                    <h3>+62814562389</h3>
+                </div>
+                <div class="flex" style="width: 70%;">
+
+                </div>
+            </div>
+            <p style="padding : 15px; margin-bottom : -10px; background-color : #0D67B5; color : white; position : relative; width : 100%;">www.LSI.com</p>
+        </footer>
+        
+
+    </center>
+
 </body>
+
 </html>
