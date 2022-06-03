@@ -1,7 +1,11 @@
 @extends('index')
 @section('template')
     <main style="background-image: url('image/bg-index.jpeg'); background-size : cover;">
-
+        @if(session()->has('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
         <div style="margin: 69px 300px; box-shadow : 3px 3px 3px gray">
                 <div style="padding : 20px 40px; background-color : white">
                     <center>
@@ -17,22 +21,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach($reservations as $reservation) --}}
+                                @foreach($reservations as $reservation)
                                 <tr>
-                                    <td>1</td>
-                                    <td>A21</td>
-                                    <td>07.00 - 09.00</td>
-                                    <td>Biology</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $reservation->seat->name }}</td>
+                                    <td>{{ $reservation->timeslot->name }}</td>
+                                    <td>{{ $reservation->category->name }}</td>
                                     <td>
-                                        <button href="/reservations/edit" class="badge  text-decoration-none p-2"><i class="bi bi-pencil-square"></i>Edit</button>
-                                        <form action="/reservations" class="d-inline" method="post">
-                                        @method('delete')
-                                        @csrf
-                                        <button class="badge bg-danger text-decoration-none p-2 border-0" onclick="return confirm('Hapus postingan?')"><i class="bi bi-trash"></i>Hapus</button>
+                                        {{-- <button href="/reservation/{{ $reservation->slug }}/edit" class="btn-index  text-decoration-none p-2"><i class="bi bi-pencil-square"></i>Edit</button> --}}
+                                        <a href="/reservation/{{ $reservation->slug }}/edit" class="btn-index" style="background-color : #8ABFEE ">Edit</a>
+                                        <form action="/reservation/{{ $reservation->slug }}" class="d-inline" method="post">
+                                            @method('delete')
+                                            @csrf
+                                            <button type = "submit" class="badge bg-danger text-decoration-none p-2 border-0" onclick="return confirm('Hapus reservasi?')"><i class="bi bi-trash"></i>Hapus</button>
                                         </form>
                                     </td>
                                 </tr>
-                                {{-- @endforeach --}}
+                                @endforeach 
                             </tbody>
                             
                         </table>
@@ -40,7 +45,7 @@
                         {{-- <h1 style="color : gray; font-size : 40px">NO RESERVATON</h1> --}}
                         
                         <br><br><br>
-                        <a href="./tambah-reservasi.html" class="btn-index" style="background-color : #8ABFEE ">Make new reservation</a>
+                        <a href="/reservation/create" class="btn-index" style="background-color : #8ABFEE ">Make new reservation</a>
                     </center>
                 </div>
         </div>

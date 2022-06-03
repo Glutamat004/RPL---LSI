@@ -19,9 +19,9 @@ class User extends Authenticatable
      */
     // protected $fillable = [
     //     'name',
+    //     'nim',
     //     'email',
     //     'password',
-    //     'nomorhp'
     // ];
 
     protected $guarded = ['id'];
@@ -44,16 +44,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function posts()
+    public function reservations()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Reservation::class);
     }
-    public function universities()
-    {
-        return $this->belongsTo(University::class, 'university_id');
-    }
-    public function transaction()
-    {
-        return $this->hasMany(Transaction::class);
-    }
+
 }

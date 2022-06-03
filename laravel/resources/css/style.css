@@ -301,3 +301,12 @@ a {
 .index p {
   font-size: 27px;
 }
+.logout{
+  background-color: #0D67B5; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 28px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 12px;
+}

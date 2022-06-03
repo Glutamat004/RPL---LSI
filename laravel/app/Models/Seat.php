@@ -5,18 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Seat extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
-
+    public function timeslots()
+    {
+        return $this->hasMany(Timeslot::class);
+    }
     public function reservations()
     {
         return $this->hasMany(Reservation::class);
     }
-    public function seats()
+    public function category()
     {
-        return $this->hasMany(Seat::class);
+        return $this->belongsTo(Category::class);
     }
 }

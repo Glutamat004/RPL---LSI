@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\ReservationController;
 use App\Models\Category;
 
 /*
@@ -33,24 +34,24 @@ Route::get('/signup', function () {
     return view('signup', [
     ]);
 });
-Route::get('/reservation', function () {
-    return view('reservation', [
-    ]);
-});
-
-Route::get('/aliya', function () {
-    return view('home2', [
-    ]);
-});
+// Route::get('/reservation', function () {
+//     return view('reservation', [
+//     ]);
+// })->middleware('auth');
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
+Route::resource('/reservation',ReservationController::class)->middleware('auth');
+Route::get('/reservation/getseats/{id}',[ReservationController::class,'getseats'])->middleware('auth');
+Route::get('/reservation/checkSlug',[ReservationController::class,'checkSlug'])->middleware('auth');
 // Route::get('/transaksi', function () {
 //     return view('transaksi', [
 //     ]);
 // });
-// Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-// Route::post('/login', [LoginController::class, 'authenticate']);
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store']);
-Route::post('/logout', [LoginController::class, 'logout']);
+
+
 
 Route::get('/dashboard', function(){
     return view('dashboard');

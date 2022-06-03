@@ -8,13 +8,14 @@
             </div>
             <div class="flex" style="width: 60%; padding : 20px 40px; background-color : white">
                 <center>
-                    <h1 style="color: #0D67B5">Buat Reservasi disini</h1>
-                    <form action="/reservation" method="post">
+                    <h1 style="color: #0D67B5">Edit Reservasi</h1>
+                    <form action="/reservation/{{ $reservation->slug }}" method="post">
+                    @method('put')
                     @csrf
                         <label for="category_id">Book Category</label><br>
                         <select name="category_id" id="category_id">
                             @foreach ($categories as $category)
-                                @if(old('category_id'==$category->id))
+                                @if(old('category_id',$reservation->category_id)==$category->id)
                                     <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
                                 @else
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -25,7 +26,7 @@
                         <label for="seat_id">Seat</label><br>
                         <select name="seat_id" id="seat_id">
                             @foreach ($seats as $seat)
-                                @if(old('seat_id'==$seat->id))
+                                @if(old('seat_id',$reservation->seat_id)==$seat->id)
                                     <option value="{{ $seat->id }}" selected>{{ $seat->name }}</option>
                                 @else
                                     <option value="{{ $seat->id }}">{{ $seat->name }}</option>
@@ -36,7 +37,7 @@
                         <label for="timeslot_id">Time Slot</label><br>
                         <select name="timeslot_id" id="timeslot_id">
                             @foreach ($timeslots as $timeslot)
-                                @if(old('timeslot_id'==$timeslot->id))
+                                @if(old('timeslot_id',$reservation->timeslot_id)==$timeslot->id)
                                     <option value="{{ $timeslot->id }}" selected>{{ $timeslot->name }}</option>
                                 @else
                                     <option value="{{ $timeslot->id }}">{{ $timeslot->name }}</option>
@@ -50,7 +51,7 @@
                                 {{ $message }}
                             </div>
                         @enderror
-                        <button type="submit" class="btn" style="background-color : #8ABFEE; color : white; border-radius : 15px">Book Now</button>
+                        <button type="submit" class="btn" style="background-color : #8ABFEE; color : white; border-radius : 15px">Edit Reservation</button>
                     </form>
                 </center>
             </div>

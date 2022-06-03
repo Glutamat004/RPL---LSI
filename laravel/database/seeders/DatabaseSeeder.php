@@ -5,9 +5,11 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use App\Models\Post;
+use App\Models\Seat;
+use App\Models\Timeslot;
+use App\Models\Reservation;
 use App\Models\Category;
-use App\Models\University;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,40 +20,64 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->create();
+
         User::create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'nim' => 'G6401201120',
             'password' => bcrypt('12345678'),
-            'nomorhp' => '089876543',
         ]);
-
-        Category::create([
-            'name' => 'Programming',
-            'slug' => 'programming',
+        Seat::create([
+            'category_id' => '1',
+            'name' => 'A1',
         ]);
-        Category::create([
-            'name' => 'Gaming',
-            'slug' => 'gaming',
+        Seat::create([
+            'category_id' => '1',
+            'name' => 'A2',
         ]);
-        Category::create([
-            'name' => 'Design',
-            'slug' => 'design',
+        Seat::create([
+            'category_id' => '2',
+            'name' => 'A3',
         ]);
-        Category::create([
-            'name' => 'Writing',
-            'slug' => 'writing',
+        Seat::create([
+            'category_id' => '2',
+            'name' => 'A4',
         ]);
         Category::create([
-            'name' => 'Translation',
-            'slug' => 'translation',
+            'name' => 'Computer',
+            'slug' => 'com',
         ]);
         Category::create([
-            'name' => 'Music',
-            'slug' => 'music',
+            'name' => 'Math',
+            'slug' => 'mtk',
         ]);
-        Post::factory(10)->create();
-        
+        Timeslot::create([
+            'seat_id' => '1',
+            'name' => '07.00-09.00',
+        ]);
+        Timeslot::create([
+            'seat_id' => '1',
+            'name' => '09.00-11.00',
+        ]);
+        Timeslot::create([
+            'seat_id' => '2',
+            'name' => '11.00-13.00',
+        ]);
+        Timeslot::create([
+            'seat_id' => '2',
+            'name' => '13.00-15.00',
+        ]);
+        Reservation::create([
+            'user_id' => '1',
+            'category_id' => '1',
+            'seat_id' => '1',
+            'timeslot_id' => '1'
+        ]);
+        Reservation::create([
+            'user_id' => '1',
+            'category_id' => '2',
+            'seat_id' => '2',
+            'timeslot_id' => '3'
+        ]);
     }
 }

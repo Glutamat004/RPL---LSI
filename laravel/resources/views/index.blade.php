@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>Sumberdaya Informasi</title>
     <link rel="icon" href="/image/logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/dashboardstyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 </head>
 
 <body>
@@ -25,7 +28,12 @@
                         <li><a class="nav-link {{ Request::is('/reservation') ? 'active' : '' }}" href="/reservation">Reservation</a></li>
                         <li><a class="nav-link {{ Request::is('#aboutus') ? 'active' : '' }}" href="/#aboutus">About Us</a></li>
                         @auth
-                            <li><a href="/logout"><strong>Logout</strong></a></li>
+                        <li class="d-flex">
+                            <form action="/logout" method="post">
+                                @csrf
+                                <button type="submit"><a href="/logout"><strong>Logout</strong></a></button>
+                            </form>
+                        </li>
                         @else
                             <li><a href="/signup"><strong>Sign Up</strong></a></li>
                         @endauth
@@ -41,7 +49,7 @@
     </div>
     
     
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 
 </html>

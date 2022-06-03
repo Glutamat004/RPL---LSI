@@ -15,18 +15,18 @@ class LoginController extends Controller
 
     public function authenticate(Request $request){
         $credentials = $request->validate([
-            'email' => ['required', 'email:dns'],
+            'nim' => ['required', 'max:255'],
             'password' => ['required', 'min:8'],
         ]);
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/reservation');
         }
 
-        return back()->withErrors('Login gagal');
+        return back()->with('loginError','Login failed!');
 
-        dd('login berhasil');
+        // dd('login berhasil');
     }
 
     public function logout(Request $request)

@@ -9,7 +9,7 @@
             <p>You can book your chair on our website now</p>
             <div class="disp">
                 <div class="flex" style="width: 25%;">
-                    <a href="#" class="btn-index">Book Your Reservation</a>
+                    <a href="/reservation" class="btn-index">Book Your Reservation</a>
                 </div>
                 <div class="flex" style="width: 25%;">
                     <a href="#learnmore" class="btn-index">Learn More</a>
@@ -68,7 +68,7 @@
 
             <br><br>
 
-            <a href="./tambah-reservasi.html" class="btn-index"
+            <a href="reservation" class="btn-index"
                 style="background-color: #80c1f9 ; box-shadow : 3px 3px 3px gray; color : black">Make a Reservation</a>
         </center>
     </div>
