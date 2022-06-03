@@ -29,8 +29,8 @@
                                     <td>{{ $reservation->category->name }}</td>
                                     <td>
                                         {{-- <button href="/reservation/{{ $reservation->slug }}/edit" class="btn-index  text-decoration-none p-2"><i class="bi bi-pencil-square"></i>Edit</button> --}}
-                                        <a href="/reservation/{{ $reservation->slug }}/edit" class="btn-index" style="background-color : #8ABFEE ">Edit</a>
-                                        <form action="/reservation/{{ $reservation->slug }}" class="d-inline" method="post">
+                                        <a href="/reservation/{{ $reservation->id }}/edit" class="btn-index" style="background-color : #8ABFEE ">Edit</a>
+                                        <form action="/reservation/{{ $reservation->id }}" class="d-inline" method="post">
                                             @method('delete')
                                             @csrf
                                             <button type = "submit" class="badge bg-danger text-decoration-none p-2 border-0" onclick="return confirm('Hapus reservasi?')"><i class="bi bi-trash"></i>Hapus</button>
